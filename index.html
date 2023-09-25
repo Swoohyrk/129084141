@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3112송우혁</title>
+    <script>
+        function addItem(){
+            var newItem = document.createElement("div");
+            newItem.innerHTML = document.getElementById("A").value;
+            document.getElementById("list").appendChild(newItem);
+            newItem.onclick = removeItem;
+            document.getElementById("list").appendChild(newItem);
+            saveList();
+        }
+        function removeItem(){
+            document.getElementById("list").removeChild(this);
+            saveList();
+        }
+        function saveList(){
+            localStorage.storedList = document.getElementById("list").innerHTML;
+        }
+        function loadList(){
+            document.getElementById("list").innerHTML = localStorage.storedList;
+            for(var i = 0; i < list.children.length; i++){
+                list.children[i].onclick=removeItem;
+            }
+        }
+        
+    </script>
+</head>
+<body style="background-color: pink;"
+<body>
+    <center><h2>My Page에 오신 것을 환영합니다!</h2>
+    방명록을 작성해주세요</center>
+    <br/>
+    <center>
+    <div style="width:500px; height:700px; border-radius:50px; background-color: white;">
+        <input type="text" id=A value="" style="height: 150px; width:250px; margin-top:50px;"/>
+        <br/>
+        <input type="button" value="입력" onclick="addItem();"/>
+        <div id ="list"></div>
+        <script>
+            if(localStorage.storedList){
+                loadList();
+            }
+        </script>
+    </div>
+    </center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
